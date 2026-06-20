@@ -10,7 +10,7 @@ env:
   MONGO_URI: 'mongodb+srv://supercluster.d83jj.mongodb.net/superData'
   MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
   MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
-  
+
 jobs:
     unit-testing:
         name: Unit testing
@@ -26,4 +26,9 @@ jobs:
             - name: Install dependences
               run: npm install
             - name: Unit Testing
-              run: npm test
+              run: npm 
+            - name: Archive Test results
+              uses: actions/upload-artifact@v7
+              with:
+                name: Mocha-Test-Results
+                path: test-results.xml
