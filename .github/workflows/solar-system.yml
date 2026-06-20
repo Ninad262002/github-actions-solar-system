@@ -1,6 +1,7 @@
 name: solar system workflow
 
-on: workflow-dispatch:
+on: 
+    workflow_dispatch:
     push:
         brances:
             - main
