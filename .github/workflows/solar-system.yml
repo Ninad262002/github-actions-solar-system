@@ -26,7 +26,8 @@ jobs:
             - name: Install dependences
               run: npm install
             - name: Unit Testing
-              run: npm 
+              run: npm test
+
             - name: Archive Test results
               uses: actions/upload-artifact@v7
               with:
