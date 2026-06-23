@@ -3,7 +3,7 @@ name: solar system workflow
 on: 
     workflow_dispatch:
     push:
-        brances:
+        branches:
             - main
             - feature/*
 env:
@@ -18,15 +18,15 @@ jobs:
           matrix:
             nodejs_version: [18, 19, 20]
             os: ["ubuntu-latest", "macos-latest"]
-          exclude:
-            - nodejs_version: 18
-              os: "macos-latest"
+            exclude:
+              - nodejs_version: 18
+                os: "macos-latest"
         runs-on: ${{ matrix.os }}
         steps:
             - name: checkout
-              uses: actions/checkout@v7
+              uses: actions/checkout@v4
             
-            - name: setup nodejs - ${{ matrix.nodejs_version}}
+            - name: setup nodejs - ${{ matrix.nodejs_version }}
               uses: actions/setup-node@v4
               with: 
                 node-version: ${{ matrix.nodejs_version }}
@@ -36,7 +36,7 @@ jobs:
               run: npm test
 
             - name: Archive Test results
-              uses: actions/upload-artifact@v7
+              uses: actions/upload-artifact@v4
               with:
                 name: Mocha-Test-Results
                 path: test-results.xml
