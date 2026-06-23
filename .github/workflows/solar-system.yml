@@ -47,9 +47,9 @@ jobs:
         - name: checkout repositroy 
           uses: actions/checkout@v4
         - name: setup nodejs 18
-              uses: actions/setup-node@v4
-              with: 
-                node-version: 18
+          uses: actions/setup-node@v4
+          with: 
+            node-version: 18
         - name: install dependencies
           run: npm install
         - name: run coverage
@@ -60,5 +60,5 @@ jobs:
           with: 
             name: Code Coverage Result
             path: coverage
-            retentation-days: 5
+            retention-days: 5
           
