@@ -14,9 +14,9 @@ jobs:
           matrix:
             nodejs_version: [18, 19, 20]
             os: ["ubuntu-latest", "macos-latest"]
-          exclude:
-            - nodejs_version: 18
-              os: macos-latest
+            exclude:
+              - nodejs_version: 18
+                os: macos-latest
         runs-on: ${{ matrix.os }}
         steps:
         - name: Checkout Repository
