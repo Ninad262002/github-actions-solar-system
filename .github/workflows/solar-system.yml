@@ -10,9 +10,9 @@ on:
       
 jobs:
     unit-testing:
-      env:
-        MONGO_URI: ${{ secrets.MONGO_URI }}
         name: Unit Testing
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
         strategy:
           matrix:
             nodejs_version: [18,20]
